@@ -285,6 +285,11 @@ function createConfig(options, entry, format, writeMeta) {
 	const externalTest =
 		external.length === 0 ? () => false : id => externalPredicate.test(id);
 
+	const sourcemap =
+		options.sourcemap && typeof options.sourcemap === 'string'
+			? options.sourcemap
+			: options.sourcemap !== false;
+
 	let config = {
 		inputOptions: {
 			input: exportType ? resolve(__dirname, '../src/lib/__entry__.js') : entry,
@@ -428,7 +433,7 @@ function createConfig(options, entry, format, writeMeta) {
 			strict: options.strict === true,
 			legacy: true,
 			freeze: false,
-			sourcemap: options.sourcemap !== false,
+			sourcemap,
 			treeshake: {
 				propertyReadSideEffects: false,
 			},
