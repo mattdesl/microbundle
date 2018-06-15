@@ -207,6 +207,11 @@ export default async function microbundle(options) {
 function createConfig(options, entry, format, writeMeta) {
 	let { pkg } = options;
 
+	const sourcemap =
+		options.sourcemap && typeof options.sourcemap === 'string'
+			? options.sourcemap
+			: options.sourcemap !== false;
+
 	let external = ['dns', 'fs', 'path', 'url'].concat(
 		options.entries.filter(e => e !== entry),
 	);
@@ -431,7 +436,7 @@ function createConfig(options, entry, format, writeMeta) {
 			strict: options.strict === true,
 			legacy: true,
 			freeze: false,
-			sourcemap: options.sourcemap !== false,
+			sourcemap,
 			treeshake: {
 				propertyReadSideEffects: false,
 			},
