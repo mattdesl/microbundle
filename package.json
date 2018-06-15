@@ -1,5 +1,5 @@
 {
-  "name": "microbundle",
+  "name": "@mattdesl/microbundle",
   "version": "0.4.4",
   "description": "Zero-configuration bundler for tiny JS libs, powered by Rollup.",
   "main": "dist/microbundle.js",
@@ -16,7 +16,7 @@
     "test": "npm run -s lint && npm run -s build && jest",
     "release": "npm run -s prepare && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
-  "repository": "developit/microbundle",
+  "repository": "mattdesl/microbundle",
   "babel": {
     "presets": [
       "env"
