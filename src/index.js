@@ -289,8 +289,8 @@ async function jsOrTs(cwd, filename) {
 	const extension = (await isFile(resolve(cwd, filename + '.ts')))
 		? '.ts'
 		: (await isFile(resolve(cwd, filename + '.tsx')))
-		? '.tsx'
-		: '.js';
+			? '.tsx'
+			: '.js';
 
 	return resolve(cwd, `${filename}${extension}`);
 }
@@ -306,10 +306,10 @@ async function getInput({ entries, cwd, source, module }) {
 						(Array.isArray(source) ? source : [source]).map(file =>
 							resolve(cwd, file),
 						)) ||
-						((await isDir(resolve(cwd, 'src'))) &&
-							(await jsOrTs(cwd, 'src/index'))) ||
-						(await jsOrTs(cwd, 'index')) ||
-						module,
+				  ((await isDir(resolve(cwd, 'src'))) &&
+						(await jsOrTs(cwd, 'src/index'))) ||
+				  (await jsOrTs(cwd, 'index')) ||
+				  module,
 		)
 		.map(file => glob(file))
 		.forEach(file => input.push(...file));
