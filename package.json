@@ -1,6 +1,6 @@
 {
   "name": "@mattdesl/microbundle",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Zero-configuration bundler for tiny JS libs, powered by Rollup.",
   "main": "dist/microbundle.js",
   "source": "src/index.js",
